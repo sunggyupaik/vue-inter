@@ -15,13 +15,16 @@
 </template>
 <script>
 export default {
-    props: ['propsdata'],
     methods: {
         removeTodo(todoItem, index) {
-            this.$emit('removeTodoItem', todoItem, index);
+            //this.$emit('removeTodoItem', todoItem, index);
+            const obj = { todoItem, index };
+            this.$store.commit('removeOneItem', obj);
         },
         toggleComplete(todoItem, index) {
-            this.$emit('toggleTodoItem', todoItem, index);
+            //this.$emit('toggleTodoItem', todoItem, index);
+            const obj = { todoItem, index };
+            this.$store.commit('toggleOneItem', obj);
         }
     }
 }
